@@ -1,0 +1,26 @@
+public class iPod {
+    
+    private String name;
+    private Song song;
+    
+    public iPod (String n) {
+        name = n;
+    }
+    
+    public void addSong(String t, String a, int s, String f) {
+        song = new Song (t, a, s, f);
+    }
+    
+    public void playSong() {
+        Mp3Player mp3 = new Mp3Player(song.getFileName());
+        mp3.play();
+    }
+    
+    public String toString() {
+        String t = "";
+        t = name + "'s iPod\n";
+        t += song; // will append the song's toString to iPod toString
+        return t;
+    }
+    
+}
