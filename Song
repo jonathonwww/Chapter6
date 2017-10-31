@@ -1,0 +1,47 @@
+public class Song {
+
+    private String title = "";
+    private String artist = "";
+    private int time = 0;
+    private String fileName= "";
+
+    /**
+     * Sets title of the song
+     * @param  t title of song as a string
+     */
+    
+    public Song (String t, String a, int s, String f){
+        title = t;
+        artist = a;
+        time = s;
+        fileName = f;
+    }
+    public void setTitle (String t) {
+        title = t;
+    }
+
+    public String toString () {
+        return title + " | " + artist + " | " + time/60 + ":" + time%60;
+    }
+    
+    public String getArtist () {
+        return artist;
+    }
+    
+    public void setArtist (String s) {
+        artist = s;
+    }
+    
+    public int getTime() {
+        return time;
+    }
+    
+    public void setTime(int secounds) {
+        time = secounds;
+    }
+    
+    public String getFileName() {
+        return fileName;
+    }
+   
+}
