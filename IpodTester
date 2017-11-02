@@ -1,17 +1,25 @@
+import java.util.Scanner;
 public class IpodTester {
     
     public static void main (String[] args) {
         
         System.out.println("\f");
         iPod myPod = new iPod("Mrs. Allen");
-        //myPod.addSong("I Want You Back", "Jackson 5", 179, "I want you back.mp3");
-        //myPod.addSong("New Freezer", "Kendrick Lamar", 180, "Rich_The_Kid_-_New_Freezer_ft_Kendrick_Lamar[Mp3Converter.net].mp3");
-        //myPod.addSong("Brohemian Rhapsody", "Queen", 100, "Bohemian Rhapsody.mp3");
-        //myPod.addSong("You Should Be Dancing", "Bee Gees", 180, "You Should Be Dancing.mp3");
+        myPod.addSong("I Want You Back", "Jackson 5", 179, "I want you back.mp3");
+        myPod.addSong("New Freezer", "Kendrick Lamar", 180, "Rich_The_Kid_-_New_Freezer_ft_Kendrick_Lamar[Mp3Converter.net].mp3");
+        myPod.addSong("Brohemian Rhapsody", "Queen", 100, "Bohemian Rhapsody.mp3");
+        myPod.addSong("You Should Be Dancing", "Bee Gees", 180, "You Should Be Dancing.mp3");
         myPod.addSong("Humble", "Kendrick Lamar", 890, "humble.mp3");
         //myPod.addSong("Monster Mash", "Someone", 890, "Monster.mp3");
         System.out.println(myPod);
+        Scanner scan = new Scanner(System.in);
+        System.out.println(myPod.getSongList());
         
-        myPod.playSong();
+        
+        System.out.println("What song would you like played?");
+        int num = scan.nextInt();
+        
+        myPod.playSong(num);
+        
     }
 }
