@@ -1,25 +1,40 @@
 public class iPod {
     
     private String name;
-    private Song song;
+    private Song[] songs;
+    private int numSongs;
     
     public iPod (String n) {
         name = n;
+        songs = new Song[5];
+        numSongs = 0;
     }
     
     public void addSong(String t, String a, int s, String f) {
-        song = new Song (t, a, s, f);
+        songs[numSongs] = new Song (t, a, s, f);
+        numSongs++;
     }
     
-    public void playSong() {
-        Mp3Player mp3 = new Mp3Player(song.getFileName());
-        mp3.play();
+    public String getSongList() {
+        String s = "";
+        for (int i = 0; i < numSongs; i++)
+            s+= (i + 1) + ". " + songs[i].getTitle() + "\n";
+        return s;
+    }
+    
+    public void playSong(int n) {
+        if (n>= 1 && n <= numSongs){
+            Mp3Player mp3 = new Mp3Player("C:/Users/webs8328/Desktop/iPod project/" +songs[n-1].getFileName());
+            mp3.play();
+        }
+        else
+            System.out.println("Invalid song.");
     }
     
     public String toString() {
         String t = "";
         t = name + "'s iPod\n";
-        t += song; // will append the song's toString to iPod toString
+        t += songs; // will append the song's toString to iPod toString
         return t;
     }
     
