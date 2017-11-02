@@ -43,5 +43,9 @@ public class Song {
     public String getFileName() {
         return fileName;
     }
+    
+    public String getTitle() {
+        return title;
+    }
    
 }
