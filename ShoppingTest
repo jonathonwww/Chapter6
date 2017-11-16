@@ -1,0 +1,41 @@
+/**
+ * This program uses the item and shoppingcart classes to provide user interface.
+ * 
+ * @author Jonathon Webster
+ * @version 11/16/17
+ */
+import java.util.Scanner;
+public class ShoppingTest {
+
+    public static void main(String[] args){
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("\f");
+        int x= 0;
+        ShoppingCart cart = new ShoppingCart();
+        while (x<5){
+            if (x == 0) {
+                System.out.println("Welcome to your shopping cart!");
+            }
+            System.out.println("Press Y to add an item and N to finish: ");
+            String p = scan.next();
+            if (p.equalsIgnoreCase("n")){
+                x=5;
+            }
+            else{
+                System.out.println("What is the name of the item you would like to purchase?");
+                String a = scan.next();
+                System.out.println("What is the price of this item in dollars?");
+                double b = scan.nextDouble();
+                System.out.println("How many would you like?");
+                int c = scan.nextInt();
+                cart.addToCart(a, b, c);
+            }
+            x++;
+        }	
+        System.out.println(cart);
+        System.out.println("Please pay $" + cart.getTotalPrice());
+    }
+}
+
+                
