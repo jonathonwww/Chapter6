@@ -41,7 +41,7 @@ public class ShoppingCart
     {
         NumberFormat fmt = NumberFormat.getCurrencyInstance();
         String contents = "\nShopping Cart\n";
-        contents += "\nItem\t\tUnit Price\tQuantity\tTotal\n";
+        contents += "\nItem\tUnit Price\tQuantity\tTotal\n";
         for (int i = 0; i < itemCount; i++)
             contents += cart[i].toString() + "\n";
         contents += "\nTotal Price: " + fmt.format(totalPrice);
@@ -57,9 +57,12 @@ public class ShoppingCart
     public Double getTotalPrice(){
         return totalPrice;
     }
+    /**
+     * This increases the size of the cart by 3.
+     */
     public void increaseSize(){
-      Item[] cart2 = new Item(cart.length + 3);
-      for (int i = 0; i < cart.length+3; i++) {
+      Item[] cart2 = new Item[cart.length + 3];
+      for (int i = 0; i < cart.length; i++) {
         cart2[i]=cart[i];
       }
       cart=cart2;
