@@ -13,14 +13,15 @@ public class ShoppingTest {
         System.out.println("\f");
         int x= 0;
         ShoppingCart cart = new ShoppingCart();
-        while (x<5){
+        while (x!=-1){
             if (x == 0) {
                 System.out.println("Welcome to your shopping cart!");
+                x=1;
             }
             System.out.println("Press Y to add an item and N to finish: ");
             String p = scan.next();
             if (p.equalsIgnoreCase("n")){
-                x=5;
+                x=-1;
             }
             else{
                 System.out.println("What is the name of the item you would like to purchase?");
@@ -31,10 +32,9 @@ public class ShoppingTest {
                 int c = scan.nextInt();
                 cart.addToCart(a, b, c);
             }
-            x++;
         }	
         System.out.println(cart);
-        System.out.println("Please pay $" + cart.getTotalPrice());
+        System.out.printf("Please pay $%.2f", cart.getTotalPrice());
     }
 }
 
