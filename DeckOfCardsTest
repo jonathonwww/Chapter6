@@ -1,0 +1,60 @@
+/**
+ * This program plays high low with the user
+ * 
+ * @author Jonathon Webster
+ * @version 11/30/17
+ */
+import java.util.Scanner;
+public class DeckOfCardsTest
+{
+    public static void main (String[] args)
+    {
+        DeckOfCards myDeckOfCards = new DeckOfCards();
+        myDeckOfCards.shuffle(); // put Card objects in random order
+        int comp = 0;
+        Scanner scan = new Scanner(System.in);
+        int per = 0;
+        System.out.print("\f");
+        // -----------------------------------------------------------
+        // print all 52 Cards in the order in which they are dealt
+        // -----------------------------------------------------------
+        for (int i = 0; i < 26; i++)
+        {
+            // printf method used for formatting output
+            System.out.println("Press c to get dealed: ");
+            scan.nextLine();
+            // print string (%) in a space of 20 characters (-20s)
+            Card card1 = myDeckOfCards.dealCard();
+            System.out.printf("Dealers card: %-20s\n",
+                card1);
+            Card card2 = myDeckOfCards.dealCard();
+            System.out.printf("Your card: %-20s\n",
+                card2);
+            if (card1.getFace() > card2.getFace()){
+                System.out.println("You lose");
+                comp++;
+            }
+            else if (card2.getFace() == card1.getFace()){
+                if (card1.getSuit() > card2.getSuit()){
+                    System.out.println("You lose");
+                    comp++;
+                }
+                else {
+                    System.out.println("You win!");
+                    per++;
+                }
+            }
+            else {
+                System.out.println("You win!");
+                per++;
+            }
+        }
+        System.out.println("FINAL SCORE:\nComputer: " + comp + " points\nYou: " + per + " points");
+        if(comp>per)
+            System.out.println("The dealer wins:(");
+        else if (comp==per)
+            System.out.println("You tied.");
+        else
+            System.out.println("You win!!!");
+    }
+}
